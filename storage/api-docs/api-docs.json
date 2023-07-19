@@ -1,0 +1,3610 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Portfolio",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/client": {
+            "get": {
+                "tags": [
+                    "Client"
+                ],
+                "summary": "all client",
+                "description": "Client",
+                "operationId": "index_client",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "name"
+                                        },
+                                        "surname": {
+                                            "type": "string",
+                                            "example": "surname"
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "example": "a@a.com"
+                                        },
+                                        "password": {
+                                            "type": "string",
+                                            "example": "123456"
+                                        },
+                                        "phone": {
+                                            "type": "string",
+                                            "example": "914431063"
+                                        },
+                                        "notes": {
+                                            "type": "string",
+                                            "example": "notes"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Client"
+                ],
+                "summary": "Client a new data",
+                "description": "new client",
+                "operationId": "5147ed146b40ef320b49d9fb3eca3995",
+                "requestBody": {
+                    "description": "User",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "surname",
+                                    "email",
+                                    "password",
+                                    "phone",
+                                    "notes"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "name"
+                                    },
+                                    "surname": {
+                                        "type": "string",
+                                        "example": "surname"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "a@a.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "123456"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "example": "12345678"
+                                    },
+                                    "notes": {
+                                        "type": "string",
+                                        "example": "notes"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The given data was invalid."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            }
+        },
+        "/api/client/{client}": {
+            "get": {
+                "tags": [
+                    "Client"
+                ],
+                "summary": "client",
+                "description": "Returns project data",
+                "operationId": "30ed5bb3c8bea24763f4d3e14ef05e93",
+                "parameters": [
+                    {
+                        "name": "client",
+                        "in": "path",
+                        "description": "client id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Client"
+                ],
+                "summary": "Client a new data",
+                "description": "update client data",
+                "operationId": "0f6d177b1646e66f43bdcf31f5729113",
+                "parameters": [
+                    {
+                        "name": "client",
+                        "in": "path",
+                        "description": "Id of user",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Pass client credentials",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "surname",
+                                    "email",
+                                    "password",
+                                    "phone",
+                                    "notes"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "name"
+                                    },
+                                    "surname": {
+                                        "type": "string",
+                                        "example": "surname"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "a@a.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "123456"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "example": "12345678"
+                                    },
+                                    "notes": {
+                                        "type": "string",
+                                        "example": "notes"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The given data was invalid."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Client"
+                ],
+                "summary": "Delete existing client",
+                "description": "Deletes a record and returns no content",
+                "operationId": "0664ad9e3b642536db16e5193c25b2b9",
+                "parameters": [
+                    {
+                        "name": "client",
+                        "in": "path",
+                        "description": "Client id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            }
+        },
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Authorization"
+                ],
+                "summary": "Post a new data",
+                "description": "Post new organization",
+                "operationId": "3457cc9d5891cad2e5e7deeff6ab7d96",
+                "requestBody": {
+                    "description": "Login",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "email",
+                                        "format": "text",
+                                        "example": "a@a.com"
+                                    },
+                                    "password": {
+                                        "type": "password",
+                                        "format": "text",
+                                        "example": "010203"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The given data was invalid."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            }
+        },
+        "/api/register": {
+            "post": {
+                "tags": [
+                    "Authorization"
+                ],
+                "summary": "Post a new data",
+                "description": "Post new organization",
+                "operationId": "c10b3bf89fdc9e529c64542ba162ec94",
+                "requestBody": {
+                    "description": "Register",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "email",
+                                    "password",
+                                    "password_confirmation"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "text",
+                                        "format": "text",
+                                        "example": "admin"
+                                    },
+                                    "email": {
+                                        "type": "email",
+                                        "format": "text",
+                                        "example": "a@a.com"
+                                    },
+                                    "password": {
+                                        "type": "password",
+                                        "format": "text",
+                                        "example": "010203"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "password",
+                                        "format": "text",
+                                        "example": "010203"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The given data was invalid."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            }
+        },
+        "/api/logout": {
+            "post": {
+                "tags": [
+                    "Authorization"
+                ],
+                "summary": "Post a new data",
+                "description": "Logout",
+                "operationId": "43f817e8d298bafd1db3953ec98f4cb3",
+                "responses": {
+                    "422": {
+                        "description": "Wrong credentials response"
+                    },
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            }
+        },
+        "/api/refresh": {
+            "post": {
+                "tags": [
+                    "Authorization"
+                ],
+                "summary": "Post a new data",
+                "description": "Reshresh",
+                "operationId": "b2e12501184f2fdaca855a0ec45361eb",
+                "responses": {
+                    "422": {
+                        "description": "Wrong credentials response"
+                    },
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            }
+        },
+        "/api/faq": {
+            "get": {
+                "tags": [
+                    "Faq"
+                ],
+                "summary": "all faq",
+                "description": "Faqs",
+                "operationId": "index_3",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "question": {
+                                            "type": "string",
+                                            "example": "name"
+                                        },
+                                        "answer": {
+                                            "type": "string",
+                                            "example": "name"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Faq"
+                ],
+                "summary": "faq a new data",
+                "description": "new faq",
+                "operationId": "b0ae4fc8d32b2f52001547a08d82a196",
+                "requestBody": {
+                    "description": "new faq",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "question",
+                                    "answer"
+                                ],
+                                "properties": {
+                                    "question": {
+                                        "type": "string",
+                                        "example": "question"
+                                    },
+                                    "answer": {
+                                        "type": "string",
+                                        "example": "answer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The given data was invalid."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            }
+        },
+        "/api/faq/{faq}": {
+            "get": {
+                "tags": [
+                    "Faq"
+                ],
+                "summary": "faq",
+                "description": "Returns project data",
+                "operationId": "7c9e8435e2a5a34a0c625c0eb92064e4",
+                "parameters": [
+                    {
+                        "name": "faq",
+                        "in": "path",
+                        "description": "faq id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Faq"
+                ],
+                "summary": "faq a new data",
+                "description": "update faq data",
+                "operationId": "7fe1c4586252b0247e3cb030ee0983f6",
+                "parameters": [
+                    {
+                        "name": "faq",
+                        "in": "path",
+                        "description": "Id of user",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Pass client credentials",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "question",
+                                    "answer"
+                                ],
+                                "properties": {
+                                    "question": {
+                                        "type": "string",
+                                        "example": "name"
+                                    },
+                                    "answer": {
+                                        "type": "string",
+                                        "example": "name"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The given data was invalid."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Faq"
+                ],
+                "summary": "Delete existing category",
+                "description": "Deletes a record and returns no content",
+                "operationId": "6de5978c4d164af62710d84205070671",
+                "parameters": [
+                    {
+                        "name": "faq",
+                        "in": "path",
+                        "description": "faq id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            }
+        },
+        "/api/feedback": {
+            "get": {
+                "tags": [
+                    "Feedback"
+                ],
+                "summary": "all feedback",
+                "description": "Feedback",
+                "operationId": "index_4",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "name"
+                                        },
+                                        "surname": {
+                                            "type": "string",
+                                            "example": "surname"
+                                        },
+                                        "position": {
+                                            "type": "string",
+                                            "example": "position"
+                                        },
+                                        "comment": {
+                                            "type": "string",
+                                            "example": "comment"
+                                        },
+                                        "rating_double": {
+                                            "type": "integer",
+                                            "example": "5"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Feedback"
+                ],
+                "summary": "feedback a new data",
+                "description": "new feedback",
+                "operationId": "73567c0c6ca97cd1fcb79ddac458d4ce",
+                "requestBody": {
+                    "description": "Feedback",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "surname",
+                                    "position",
+                                    "comment",
+                                    "rating_double"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "name"
+                                    },
+                                    "surname": {
+                                        "type": "string",
+                                        "example": "surname"
+                                    },
+                                    "position": {
+                                        "type": "string",
+                                        "example": "position"
+                                    },
+                                    "comment": {
+                                        "type": "string",
+                                        "example": "comment"
+                                    },
+                                    "rating_double": {
+                                        "type": "integer",
+                                        "example": "5"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The given data was invalid."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            }
+        },
+        "/api/feedback/{feedback}": {
+            "get": {
+                "tags": [
+                    "Feedback"
+                ],
+                "summary": "feedback",
+                "description": "Returns project data",
+                "operationId": "9cb1ad270d0eb95045507532bc19ce15",
+                "parameters": [
+                    {
+                        "name": "feedback",
+                        "in": "path",
+                        "description": "feedback id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Feedback"
+                ],
+                "summary": "feedback a new data",
+                "description": "update feedback data",
+                "operationId": "8fc1745850b1f5dafb8b03b07bd41ede",
+                "parameters": [
+                    {
+                        "name": "feedback",
+                        "in": "path",
+                        "description": "Id of feedback",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Pass client credentials",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "surname",
+                                    "position",
+                                    "comment",
+                                    "rating_update"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "name"
+                                    },
+                                    "surname": {
+                                        "type": "string",
+                                        "example": "surname"
+                                    },
+                                    "position": {
+                                        "type": "string",
+                                        "example": "position"
+                                    },
+                                    "comment": {
+                                        "type": "string",
+                                        "example": "comment"
+                                    },
+                                    "rating_double": {
+                                        "type": "integer",
+                                        "example": "5"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The given data was invalid."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Feedback"
+                ],
+                "summary": "Delete existing feedback",
+                "description": "Deletes a record and returns no content",
+                "operationId": "c768b033e8bbf1d25f692582c0b197e6",
+                "parameters": [
+                    {
+                        "name": "feedback",
+                        "in": "path",
+                        "description": "feedback id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            }
+        },
+        "/api/image_file": {
+            "get": {
+                "tags": [
+                    "Image_file"
+                ],
+                "summary": "all image_file",
+                "description": "image_file",
+                "operationId": "index_5",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "name"
+                                        },
+                                        "file_url": {
+                                            "type": "string",
+                                            "example": "url"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Image_file"
+                ],
+                "summary": "image_file a new data",
+                "description": "new image_file",
+                "operationId": "65aed86e29b7869de26924ef440e9266",
+                "requestBody": {
+                    "description": "new image_file",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "file_url"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "name"
+                                    },
+                                    "file_url": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The given data was invalid."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            }
+        },
+        "/api/image_file/{image_file}": {
+            "get": {
+                "tags": [
+                    "Image_file"
+                ],
+                "summary": "image_file",
+                "description": "Returns project data",
+                "operationId": "8f473542d978d0ac7695a22fb662d5ba",
+                "parameters": [
+                    {
+                        "name": "image_file",
+                        "in": "path",
+                        "description": "image_file id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Image_file"
+                ],
+                "summary": "image_file a new data",
+                "description": "update image_file data",
+                "operationId": "270fa7919468c6c65dc7c79d9f8758dd",
+                "parameters": [
+                    {
+                        "name": "image_file",
+                        "in": "path",
+                        "description": "Id of image_file",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Pass image_file credentials",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "file_url"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "name"
+                                    },
+                                    "file_url": {
+                                        "type": "string",
+                                        "example": "url"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The given data was invalid."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Image_file"
+                ],
+                "summary": "Delete existing feedback",
+                "description": "Deletes a record and returns no content",
+                "operationId": "cec5186ec668b6a8173943cd7be2d139",
+                "parameters": [
+                    {
+                        "name": "image_file1",
+                        "in": "path",
+                        "description": "image_file id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            }
+        },
+        "/api/lead_category": {
+            "get": {
+                "tags": [
+                    "Lead_Category"
+                ],
+                "summary": "all category",
+                "description": "Lead Category",
+                "operationId": "index_2",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "name"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Lead_Category"
+                ],
+                "summary": "category a new data",
+                "description": "new Category",
+                "operationId": "d665dc593b16ff837ea8d2187254a2b4",
+                "requestBody": {
+                    "description": "Lead Category",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "name"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The given data was invalid."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            }
+        },
+        "/api/lead_category/{lead_category}": {
+            "get": {
+                "tags": [
+                    "Lead_Category"
+                ],
+                "summary": "id",
+                "description": "Returns project data",
+                "operationId": "2dd43a5dff85f52c7520ed83274e4db7",
+                "parameters": [
+                    {
+                        "name": "lead_category",
+                        "in": "path",
+                        "description": "category id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Lead_Category"
+                ],
+                "summary": "Category a new data",
+                "description": "update category data",
+                "operationId": "56726fc70094abc4954fa3a868d0c514",
+                "parameters": [
+                    {
+                        "name": "lead_category",
+                        "in": "path",
+                        "description": "Id of user",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Pass client credentials",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "name"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The given data was invalid."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Lead_Category"
+                ],
+                "summary": "Delete existing category",
+                "description": "Deletes a record and returns no content",
+                "operationId": "5505e8dc928463d63743a3bd63332f03",
+                "parameters": [
+                    {
+                        "name": "lead_category",
+                        "in": "path",
+                        "description": "category id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            }
+        },
+        "/api/lead": {
+            "get": {
+                "tags": [
+                    "Lead"
+                ],
+                "summary": "all lead",
+                "description": "Lead",
+                "operationId": "index_lead",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "name"
+                                        },
+                                        "surname": {
+                                            "type": "string",
+                                            "example": "surname"
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "example": "a@a.com"
+                                        },
+                                        "phone": {
+                                            "type": "string",
+                                            "example": "914431063"
+                                        },
+                                        "lead_category_id": {
+                                            "type": "string",
+                                            "example": "1"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Lead"
+                ],
+                "summary": "lead a new data",
+                "description": "new lead",
+                "operationId": "5e75031dd6176b28831214dc3930b412",
+                "requestBody": {
+                    "description": "lead",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "surname",
+                                    "email",
+                                    "phone",
+                                    "lead_category_id"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "name"
+                                    },
+                                    "surname": {
+                                        "type": "string",
+                                        "example": "surname"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "a@a.com"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "example": "914431063"
+                                    },
+                                    "lead_category_id": {
+                                        "type": "string",
+                                        "example": "1"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The given data was invalid."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            }
+        },
+        "/api/lead/{lead}": {
+            "get": {
+                "tags": [
+                    "Lead"
+                ],
+                "summary": "lead",
+                "description": "Returns project data",
+                "operationId": "89c79104e7d7e0289cffd07d2396698e",
+                "parameters": [
+                    {
+                        "name": "lead",
+                        "in": "path",
+                        "description": "lead id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Lead"
+                ],
+                "summary": "lead a new data",
+                "description": "update lead data",
+                "operationId": "53ae9f717536acdb72624516ca3a5237",
+                "parameters": [
+                    {
+                        "name": "lead",
+                        "in": "path",
+                        "description": "Id of lead",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Pass client credentials",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "surname",
+                                    "email",
+                                    "phone",
+                                    "lead_category_id"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "name"
+                                    },
+                                    "surname": {
+                                        "type": "string",
+                                        "example": "surname"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "a@a.com"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "example": "914431063"
+                                    },
+                                    "lead_category_id": {
+                                        "type": "string",
+                                        "example": "1"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The given data was invalid."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Lead"
+                ],
+                "summary": "Delete existing category",
+                "description": "Deletes a record and returns no content",
+                "operationId": "89eb3bdfbc75fe4887c52c15eb46f085",
+                "parameters": [
+                    {
+                        "name": "lead",
+                        "in": "path",
+                        "description": "lead id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            }
+        },
+        "/api/portfolio_category": {
+            "get": {
+                "tags": [
+                    "Portfolio_Category"
+                ],
+                "summary": "all category",
+                "description": "Portfolio Category",
+                "operationId": "index_1",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "name"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Portfolio_Category"
+                ],
+                "summary": "Client a new data",
+                "description": "new Category",
+                "operationId": "d9982af13f036a28f3488f4844729540",
+                "requestBody": {
+                    "description": "Portfolio Category",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "name"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The given data was invalid."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            }
+        },
+        "/api/portfolio_category/{portfolio_category}": {
+            "get": {
+                "tags": [
+                    "Portfolio_Category"
+                ],
+                "summary": "portfolio_category",
+                "description": "Returns project data",
+                "operationId": "756516c293ea8e16b2349c01ecc1d9b3",
+                "parameters": [
+                    {
+                        "name": "portfolio_category",
+                        "in": "path",
+                        "description": "category id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Portfolio_Category"
+                ],
+                "summary": "Category a new data",
+                "description": "update category data",
+                "operationId": "8f31e734215ca8f7a66a203ebdced838",
+                "parameters": [
+                    {
+                        "name": "portfolio_category",
+                        "in": "path",
+                        "description": "Id of user",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Pass client credentials",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "name"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The given data was invalid."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Portfolio_Category"
+                ],
+                "summary": "Delete existing category",
+                "description": "Deletes a record and returns no content",
+                "operationId": "a6ebc53d0121bd2bcc8c9316527c790a",
+                "parameters": [
+                    {
+                        "name": "portfolio_category",
+                        "in": "path",
+                        "description": "category id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            }
+        },
+        "/api/portfolio": {
+            "get": {
+                "tags": [
+                    "Portfolio"
+                ],
+                "summary": "all portfolio",
+                "description": "Portfolio",
+                "operationId": "index_portfolio",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "title": {
+                                            "type": "string",
+                                            "example": "title"
+                                        },
+                                        "category_id": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "client_id": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "image": {
+                                            "type": "string",
+                                            "format": "binary",
+                                            "example": "image"
+                                        },
+                                        "video": {
+                                            "type": "string",
+                                            "format": "binary",
+                                            "example": "video"
+                                        },
+                                        "published_date": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "example": "Y-m-d"
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "example": "description"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Portfolio"
+                ],
+                "summary": "portfolio a new data",
+                "description": "Portfolio new organization",
+                "operationId": "bff512bac105b1107c6a55a975f6aff6",
+                "requestBody": {
+                    "description": "Portfolio",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "title",
+                                    "category_id",
+                                    "client_id",
+                                    "image",
+                                    "video",
+                                    "published_date",
+                                    "description"
+                                ],
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "example": "title"
+                                    },
+                                    "category_id": {
+                                        "type": "string",
+                                        "example": "category_id"
+                                    },
+                                    "client_id": {
+                                        "type": "string",
+                                        "example": "client_id"
+                                    },
+                                    "image": {
+                                        "type": "string",
+                                        "example": "image"
+                                    },
+                                    "video": {
+                                        "type": "string",
+                                        "example": "video"
+                                    },
+                                    "published_date": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "Y-m-d"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "description"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The given data was invalid."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            }
+        },
+        "/api/portfolio/{portfolio}": {
+            "get": {
+                "tags": [
+                    "Portfolio"
+                ],
+                "summary": "portfolio",
+                "description": "Returns project data",
+                "operationId": "808e3a82f3dd4145f7bb3e1d2707603d",
+                "parameters": [
+                    {
+                        "name": "portfolio",
+                        "in": "path",
+                        "description": "portfolio id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Portfolio"
+                ],
+                "summary": "portfolio a new data",
+                "description": "update portoflio data",
+                "operationId": "bc5766bf822927b0bc8fadccec5213bb",
+                "parameters": [
+                    {
+                        "name": "portfolio",
+                        "in": "path",
+                        "description": "Id of user",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Pass category   credentials",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title",
+                                    "category_id",
+                                    "client_id",
+                                    "image",
+                                    "video",
+                                    "published_date",
+                                    "description"
+                                ],
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "example": "title"
+                                    },
+                                    "category_id": {
+                                        "type": "string",
+                                        "example": "category_id"
+                                    },
+                                    "client_id": {
+                                        "type": "string",
+                                        "example": "client_id"
+                                    },
+                                    "image": {
+                                        "type": "string",
+                                        "example": "image"
+                                    },
+                                    "video": {
+                                        "type": "string",
+                                        "example": "video"
+                                    },
+                                    "published_date": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "Y-m-d"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "description"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The given data was invalid."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Portfolio"
+                ],
+                "summary": "Delete existing project",
+                "description": "Deletes a record and returns no content",
+                "operationId": "ea73b5064cf0e548b62e7f6d80dc7c08",
+                "parameters": [
+                    {
+                        "name": "portfolio",
+                        "in": "path",
+                        "description": "portfolio id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            }
+        },
+        "/api/portfolio_join_image_files": {
+            "get": {
+                "tags": [
+                    "Portfolio_Join_Image_File"
+                ],
+                "summary": "all joinfile",
+                "description": "portfolio_join_image_files",
+                "operationId": "index_file",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "image_file_id": {
+                                            "type": "string",
+                                            "example": "id"
+                                        },
+                                        "portfolio_id": {
+                                            "type": "string",
+                                            "example": "id"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Portfolio_Join_Image_File"
+                ],
+                "summary": "portfolio join image file a new data",
+                "description": "new join image file",
+                "operationId": "6d57bcf99162a28507f7e45a1be592d8",
+                "requestBody": {
+                    "description": "POrtfolio_Join_Image_File",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "image_file_id",
+                                    "portfolio_id"
+                                ],
+                                "properties": {
+                                    "image_file_id": {
+                                        "type": "string",
+                                        "example": "id"
+                                    },
+                                    "portfolio_id": {
+                                        "type": "string",
+                                        "example": "id"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The given data was invalid."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            }
+        },
+        "/api/portfolio_join_image_files/{portfolio_join_image_file}": {
+            "get": {
+                "tags": [
+                    "Portfolio_Join_Image_File"
+                ],
+                "summary": "join image file",
+                "description": "Returns file data",
+                "operationId": "4baa3411dc15ab52c2671edc9ed683f0",
+                "parameters": [
+                    {
+                        "name": "portfolio_join_image_file",
+                        "in": "path",
+                        "description": "file id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Portfolio_Join_Image_File"
+                ],
+                "summary": "image_file a new data",
+                "description": "Portfolio_Join_Image_File_crud",
+                "operationId": "1949bba76ea4f5f80522ab60c0c3eb4c",
+                "parameters": [
+                    {
+                        "name": "portfolio_join_image_file_id",
+                        "in": "path",
+                        "description": "Id of file",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "portfolio join image file",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "image_file_id",
+                                    "portfolio_id"
+                                ],
+                                "properties": {
+                                    "image_file_id": {
+                                        "type": "string",
+                                        "example": "1"
+                                    },
+                                    "portfolio_id": {
+                                        "type": "string",
+                                        "example": "1"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The given data was invalid."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Portfolio_Join_Image_File"
+                ],
+                "summary": "Delete existing project",
+                "description": "Deletes a record and returns no content",
+                "operationId": "41f56c5559c4545dcfb7e64a67ffc493",
+                "parameters": [
+                    {
+                        "name": "portfolio_join_image_file",
+                        "in": "path",
+                        "description": "File id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            }
+        },
+        "/api/team_member": {
+            "get": {
+                "tags": [
+                    "Team member"
+                ],
+                "summary": "all team_member",
+                "description": "team_member",
+                "operationId": "team_member",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "name"
+                                        },
+                                        "surname": {
+                                            "type": "string",
+                                            "example": "surname"
+                                        },
+                                        "image": {
+                                            "type": "string",
+                                            "example": "image"
+                                        },
+                                        "position": {
+                                            "type": "string",
+                                            "example": "position"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Team member"
+                ],
+                "summary": "team_member a new data",
+                "description": "team_member new organization",
+                "operationId": "00308961e568f87b2925244a9c6645e7",
+                "requestBody": {
+                    "description": "Team member",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "surname",
+                                    "image",
+                                    "position"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "name"
+                                    },
+                                    "surname": {
+                                        "type": "string",
+                                        "example": "surname"
+                                    },
+                                    "image": {
+                                        "type": "string",
+                                        "example": "image"
+                                    },
+                                    "position": {
+                                        "type": "string",
+                                        "example": "position"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The given data was invalid."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            }
+        },
+        "/api/team_member/{team_member}": {
+            "get": {
+                "tags": [
+                    "Team member"
+                ],
+                "summary": "team member",
+                "description": "team_member_crud",
+                "operationId": "76968944cd1a9665af4adce8cf7bc060",
+                "parameters": [
+                    {
+                        "name": "team_member",
+                        "in": "path",
+                        "description": "team_member id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Team member"
+                ],
+                "summary": "Team_member a new data",
+                "description": "Portfolio_Join_Image_File_crud",
+                "operationId": "a064317d6b33b3c53ec33b6ff05c46c5",
+                "parameters": [
+                    {
+                        "name": "team_member",
+                        "in": "path",
+                        "description": "Id of user",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Pass category   credentials",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "surname",
+                                    "image",
+                                    "position"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "name"
+                                    },
+                                    "surname": {
+                                        "type": "string",
+                                        "example": "surname"
+                                    },
+                                    "image": {
+                                        "type": "string",
+                                        "example": "image"
+                                    },
+                                    "position": {
+                                        "type": "string",
+                                        "example": "position"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The given data was invalid."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Team member"
+                ],
+                "summary": "Delete existing project",
+                "description": "Portfolio_Join_Image_File_crud",
+                "operationId": "5a3a61f394606b4072b164365e66ddf7",
+                "parameters": [
+                    {
+                        "name": "team_member",
+                        "in": "path",
+                        "description": "team_member id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            }
+        },
+        "/api/user": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "all user",
+                "description": "User",
+                "operationId": "index_user",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "name"
+                                        },
+                                        "surname": {
+                                            "type": "string",
+                                            "example": "surname"
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "example": "a@a.com"
+                                        },
+                                        "password": {
+                                            "type": "string",
+                                            "example": "123456"
+                                        },
+                                        "phone": {
+                                            "type": "string",
+                                            "example": "914431063"
+                                        },
+                                        "user_status": {
+                                            "type": "string",
+                                            "example": "admin"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Post a new data",
+                "description": "Post new organization",
+                "operationId": "089999749fbdec98922de2f74ba8d540",
+                "requestBody": {
+                    "description": "User",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "surname",
+                                    "email",
+                                    "password",
+                                    "phone",
+                                    "user_status"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "name"
+                                    },
+                                    "surname": {
+                                        "type": "string",
+                                        "example": "surname"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "a@a.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "123456"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "example": "12345678"
+                                    },
+                                    "user_status": {
+                                        "type": "string",
+                                        "example": "admin"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The given data was invalid."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            }
+        },
+        "/api/user/{user}": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "user",
+                "description": "Returns project data",
+                "operationId": "a0fa3a08f20fb611866a52d1bb2e43dd",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "path",
+                        "description": "user id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Post a new data",
+                "description": "update user data",
+                "operationId": "3e31b0fdd90aa62f59f7de41a72052ea",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "path",
+                        "description": "Id of user",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Pass category   credentials",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "surname",
+                                    "email",
+                                    "password",
+                                    "phone",
+                                    "user_status"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "name"
+                                    },
+                                    "surname": {
+                                        "type": "string",
+                                        "example": "surname"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "a@a.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "123456"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "example": "12345678"
+                                    },
+                                    "user_status": {
+                                        "type": "string",
+                                        "example": "admin"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The given data was invalid."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Delete existing project",
+                "description": "Deletes a record and returns no content",
+                "operationId": "887f11e9971bf8f135d6acd66435514a",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "path",
+                        "description": "User id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "api": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "api": {
+                "type": "http",
+                "description": "Login with email and password to get the authentication token",
+                "name": "Token based Based",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Authorization",
+            "description": "auth"
+        },
+        {
+            "name": "User",
+            "description": "user_crud"
+        },
+        {
+            "name": "Client",
+            "description": "client_crud"
+        },
+        {
+            "name": "Portfolio_Category",
+            "description": "portfolio_category_crud"
+        },
+        {
+            "name": "Portfolio",
+            "description": "portfolio_edit"
+        },
+        {
+            "name": "Lead_Category",
+            "description": "lead_category_crud"
+        },
+        {
+            "name": "Faq",
+            "description": "faq_crud"
+        },
+        {
+            "name": "Feedback",
+            "description": "feedback_crud"
+        },
+        {
+            "name": "Image_file",
+            "description": "image_file_crud"
+        },
+        {
+            "name": "Portfolio_Join_Image_File",
+            "description": "Portfolio_Join_Image_File_crud"
+        },
+        {
+            "name": "Team member",
+            "description": "team_member_crud"
+        },
+        {
+            "name": "Lead",
+            "description": "lead_crud"
+        }
+    ]
+}
